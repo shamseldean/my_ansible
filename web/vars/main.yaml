@@ -1,0 +1,6 @@
+
+package_one: nginx
+package_two: curl
+var_one: El_negm
+var_two: number_1
+version: latest

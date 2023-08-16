@@ -1,0 +1,10 @@
+
+- name: update cache
+  tags: update
+  apt:
+    update_cache: true
+- name: install mariadb
+  tags: always           #never
+  apt: 
+    name: "{{package_three}}"
+    state: "{{version}}" 

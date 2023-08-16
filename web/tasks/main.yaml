@@ -1,0 +1,22 @@
+
+- name: update cache
+  tags: update
+  apt:
+    update_cache: true
+- name: install nginx
+  tags: always           #never
+  apt: 
+    name: "{{package_one}}"
+    state: "{{version}}" 
+  notify: my_handler
+  
+- name: install curl
+  tags: curl
+  apt: 
+    name: "{{package_two}}"
+    state: "{{version}}" 
+
+- name: copying templates
+  template:
+    src: ./index.html.j2
+    dest: /var/www/html/index.nginx-debian.html

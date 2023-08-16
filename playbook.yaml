@@ -1,0 +1,10 @@
+- name : my first play 
+  hosts: all 
+  become: true
+  gather_facts: false
+  roles:
+    - web
+    - db
+    - copy
+    - docker
+ 

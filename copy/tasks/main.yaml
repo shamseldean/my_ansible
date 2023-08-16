@@ -1,0 +1,24 @@
+
+- name: update cache
+  tags: never
+  apt:
+    update_cache: true
+  
+
+- name: install mariadb
+  tags: always           #never
+  apt: 
+    name: "{{package_three}}"
+    state: "{{version}}" 
+  register: result
+
+- name: copying files
+  tags: always           #never
+  copy: 
+    src: "{{item}}"
+    dest: .
+  loop:
+  - "{{files[0]}}"
+  - "{{files[1]}}"
+  - "{{files[2]}}"
+  when: result.changed == true
